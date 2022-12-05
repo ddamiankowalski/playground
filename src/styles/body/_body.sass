@@ -1,0 +1,186 @@
+@use '../fonts/_export'
+@use '../colors/_colors' as colors
+
+body
+    font-family: 'Open Sans'
+    font-weight: 600
+    color: colors.$primary-color
+    background-color: #fafafa
+
+.container
+    display: flex
+    flex-wrap: wrap
+
+    & .container-message
+        flex-basis: 50%
+
+    &-height
+        &__full
+            height: 100vh
+
+    &-flex
+        &__row
+            flex-direction: row
+        &__column
+            flex-direction: column
+
+.align
+    &-vertical__center
+        justify-content: center
+    &-horizontal__center
+        align-content: center
+    &-self__center
+        align-self: center
+
+.text
+    &-weight
+        &__bold
+            font-weight: 600
+        &__thin
+            font-weight: 100
+
+    &-size
+        &__large
+            font-size: 2rem
+        &__medium
+            font-size: 1rem
+        &__small
+            font-size: .9rem
+        &__x-small
+            font-size: .8rem
+        &__xx-small
+            font-size: .7rem
+
+    &-type
+        &__subtext
+            color: colors.$dark-grey
+
+    &-align
+        &__center
+            text-align: center
+
+    &-transform
+        &__uppercase
+            text-transform: uppercase
+
+.logo
+    background: url('../../assets/img/rxjs-logo.png')
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    flex-basis: 10%
+    height: 100%
+    min-height: 5rem
+    max-height: 8rem
+
+.flex
+    &__grow
+        flex-grow: 1
+
+.margin
+    &-top
+        &__small
+            margin-top: .5rem
+        &__medium
+            margin-top: 1rem
+        &__large
+            margin-top: 1.5rem
+
+    &-bottom
+        &__x-small
+            margin-bottom: .3rem
+        &__small
+            margin-bottom: .5rem
+        &__medium
+            margin-bottom: 1rem
+        &__large
+            margin-bottom: 1.5rem
+
+    &-horizontal
+        &__small
+            margin-left: .5rem
+            margin-right: .5rem
+        &__medium
+            margin-left: 1rem
+            margin-right: 1rem
+        &__large
+            margin-left: 2.5rem
+            margin-right: 2.5rem
+
+    &-vertical
+        &__small
+            margin-top: .5rem
+            margin-bottom: .5rem
+        &__medium
+            margin-top: 1rem
+            margin-bottom: 1rem
+        &__large
+            margin-top: 2rem
+            margin-bottom: 2rem
+
+.card
+    background-color: colors.$white
+    padding: 2rem
+    border-radius: .5rem
+    box-shadow: 1px 1px 31px -11px rgba(66, 68, 90, .40)
+    width: 50%
+    max-width: 25rem
+
+.cardnav
+    align-content: center
+    justify-content: center
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+
+    &-icon
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-content: center
+        color: colors.$disabled-grey-text
+        
+        &:hover
+            cursor: pointer
+            color: colors.$primary-color
+
+button
+    all: unset
+
+.button
+    background-color: colors.$primary-color
+    padding: .5rem
+    padding-left: 1rem
+    padding-right: 1rem
+    border-radius: .5rem
+    color: colors.$white
+    font-size: .7rem
+    font-weight: 100
+    text-transform: uppercase
+    box-shadow: 1px 1px 5px -2px rgba(66, 68, 90, .4)
+    transition: background-color .3s ease-in
+
+    &-outline
+        background-color: rgba(0, 0, 0, 0)
+        border: .1rem solid colors.$primary-color
+        color: colors.$primary-color
+
+        &:disabled
+            border: .1rem solid colors.$disabled-grey
+            color: colors.$disabled-grey-text
+            background-color: colors.$disabled-grey
+
+        &:hover:not(:disabled)
+            color: colors.$white
+
+    &:hover:not(:disabled)
+        cursor: pointer
+        box-shadow: 1px 1px 10px -2px rgba(66, 68, 90, .4)
+        background-color: colors.$primary-color-active
+
+    &-type
+        &__active
+
+.button-section
+    display: flex
+    gap: .5rem
