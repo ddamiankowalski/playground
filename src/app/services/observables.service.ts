@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,17 @@ export class ObservablesService {
     @Inject('RXJS_CONFIG') private RXJS_CONFIG: any
   ) { }
 
-  currentCard: any;
+  cardChange: Subject<boolean> = new Subject();
+
+  currentConfig: any;
   currentIndex: number = 0;
 
+  observeCardChange(): Observable<boolean> {
+    return this.cardChange.asObservable();
+  }
+
   initConfig(): void {
-    this.currentCard = this.RXJS_CONFIG[this.currentIndex];
+    this.currentConfig = this.RXJS_CONFIG[this.currentIndex];
   }
 
   swapCard(side: 'left' | 'right'): void {
@@ -23,14 +29,16 @@ export class ObservablesService {
   swipeRight() {
     if((this.currentIndex + 1) !== this.RXJS_CONFIG.length) {
       this.currentIndex++;
-      this.currentCard = this.RXJS_CONFIG[this.currentIndex];
+      this.currentConfig = this.RXJS_CONFIG[this.currentIndex];
+      this.cardChange.next(true);
     }
   }
 
   swipeLeft() {
     if(this.currentIndex !== 0) {
       this.currentIndex--;
-      this.currentCard = this.RXJS_CONFIG[this.currentIndex];
+      this.currentConfig = this.RXJS_CONFIG[this.currentIndex];
+      this.cardChange.next(true);
     }
   }
 
@@ -38,9 +46,10 @@ export class ObservablesService {
     return new Observable((observer) => {
       let value: number = 0;
 
+      observer.next(value);
       const interval = setInterval(() => {
         observer.next(`value emitted:  ${value++}`);
-      }, 2000)
+      }, 200)
 
       return () => {
         console.log('The subscription has been cleaned up!')

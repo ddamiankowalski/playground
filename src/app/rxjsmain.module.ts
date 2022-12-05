@@ -7,7 +7,10 @@ import { CardComponent } from './card/card.component';
 import { ObservableOutputComponent } from './observable-output/observable-output.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardNavIconComponent } from './card-nav-icon/card-nav-icon.component';
+import { SimpleObservableComponent } from './simple-observable/simple-observable.component';
+
 import { RXJS_CONFIG } from './rxjs.config';
+import { SimpleOperatorComponent } from './simple-operator/simple-operator.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,9 @@ import { RXJS_CONFIG } from './rxjs.config';
     MainContainerComponent,
     CardComponent,
     ObservableOutputComponent,
-    CardNavIconComponent
+    CardNavIconComponent,
+    SimpleObservableComponent,
+    SimpleOperatorComponent
   ],
   imports: [
     BrowserModule,

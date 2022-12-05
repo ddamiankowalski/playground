@@ -9,6 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
       transition(':enter', [
         style({ opacity: 0, display: 'absolute', height: 0 }),
         animate('300ms ease-in-out', style({ opacity: 1, height: '*' }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1, display: 'absolute', height: '*' }),
+        animate('300ms ease-in-out', style({ opacity: 0, height: 0 }))
       ])
     ])
   ]
