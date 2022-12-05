@@ -1,0 +1,11 @@
+<div class="card-header">
+    <p class="text text-weight__bold text-transform__uppercase text-size__small">{{ card.header }}</p>
+    <p class="text text-type__subtext text-size__x-small text-weight__thin margin-top__small">{{ card.subHeader }}</p>
+    <div class="button-section margin-top__large">
+        <button (click)="handleCardAction()" class="button">subscribe</button>
+        <button [disabled]="!card.unsubscribable" class="button button-outline">unsubscribe</button>
+    </div>
+    <app-observable-output [isVisible]="outputActive">
+        {{ observableOutput | async }}
+    </app-observable-output>
+</div>

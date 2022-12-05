@@ -1,0 +1,10 @@
+<ng-template [ngIf]="isVisible" >
+    <div class="container container-flex__column margin-top__large" @voidAnimation>
+        <p class="text-type__subtext text-size__x-small text-weight__thin text-transform__uppercase">
+            async pipe output
+        </p>
+        <div class="text text-weight__thin text-size__x-small">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</ng-template>
