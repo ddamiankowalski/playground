@@ -4,7 +4,8 @@ import { ObservablesService } from '../services/observables.service';
 
 @Component({
   selector: 'app-observable-component',
-  templateUrl: './simple-observable.component.html'
+  templateUrl: './simple-observable.component.html',
+  providers: [ObservablesService]
 })
 export class SimpleObservableComponent {
 

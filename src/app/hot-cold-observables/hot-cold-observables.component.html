@@ -1,0 +1,15 @@
+<div class="card-header">
+    <p class="text text-weight__bold text-transform__uppercase text-size__small">{{ card.header }}</p>
+    <p class="text text-type__subtext text-size__x-small text-weight__thin margin-top__small">{{ card.subHeader }}</p>
+    <div class="button-section margin-top__large">
+        <button [disabled]="isOutputVisibleFirst" (click)="startEmitting('first')" class="button">subscribe first</button>
+        <button [disabled]="isOutputVisibleSecond" (click)="startEmitting('second')" class="button">subscribe second</button>
+        <button [disabled]="!isOutputVisibleSecond && !isOutputVisibleFirst" (click)="unsubscribe()" class="button">unsubscribe</button>
+    </div>
+    <app-observable-output [isVisible]="isOutputVisibleFirst">
+        {{ outputFirst }}
+    </app-observable-output>
+    <app-observable-output [isVisible]="isOutputVisibleSecond">
+        {{ outputSecond }}
+    </app-observable-output>
+</div>

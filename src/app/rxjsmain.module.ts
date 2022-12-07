@@ -8,9 +8,11 @@ import { ObservableOutputComponent } from './observable-output/observable-output
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardNavIconComponent } from './card-nav-icon/card-nav-icon.component';
 import { SimpleObservableComponent } from './simple-observable/simple-observable.component';
+import { IntervalOperatorComponent } from './interval-operator/interval-operator.component';
 
 import { RXJS_CONFIG } from './rxjs.config';
-import { SimpleOperatorComponent } from './simple-operator/simple-operator.component';
+import { MapFilterOperatorComponent } from './map-filter-operator/map-filter-operator.component';
+import { HotColdObservablesComponent } from './hot-cold-observables/hot-cold-observables.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SimpleOperatorComponent } from './simple-operator/simple-operator.compo
     ObservableOutputComponent,
     CardNavIconComponent,
     SimpleObservableComponent,
-    SimpleOperatorComponent
+    IntervalOperatorComponent,
+    MapFilterOperatorComponent,
+    HotColdObservablesComponent
   ],
   imports: [
     BrowserModule,

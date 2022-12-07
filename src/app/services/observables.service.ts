@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -44,16 +44,22 @@ export class ObservablesService {
 
   createObservable(): Observable<any> {
     return new Observable((observer) => {
-      let value: number = 0;
+      let secondsPassed: boolean = false;
+      observer.next('observer started');
 
-      observer.next(value);
       const interval = setInterval(() => {
-        observer.next(`value emitted:  ${value++}`);
-      }, 200)
+        if(!secondsPassed) {
+          observer.next('three seconds have passed');
+          secondsPassed = true;
+        } else {
+          observer.next('completed the stream')
+          observer.complete();
+        }
+      }, 3000)
 
       return () => {
-        console.log('The subscription has been cleaned up!')
         clearInterval(interval);
+        console.log('Unsubscribed!')
       }
     })
   }
